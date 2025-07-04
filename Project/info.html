@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>ECG Arrhythmia Classification - Info</h2>
+
+<button class="collapsible">Left Bundle Branch Block</button>
+<div class="collapsible-content">
+  <p>
+    Left Bundle Branch Block (LBBB) is a blockage of electrical impulses to the left side of the heart. It can indicate underlying heart disease and may affect the interpretation of ECGs.
+  </p>
+</div>
+
+<button class="collapsible">Normal</button>
+<div class="collapsible-content">
+  <p>
+    A Normal ECG shows standard heart rhythm and electrical activity, indicating no detectable arrhythmia or conduction abnormality.
+  </p>
+</div>
+
+<button class="collapsible">Premature Atrial Contraction</button>
+<div class="collapsible-content">
+  <p>
+    Premature Atrial Contractions (PACs) are early heartbeats originating in the atria. They are common and often benign but may indicate increased risk of atrial arrhythmias.
+  </p>
+</div>
+
+<button class="collapsible">Premature Ventricular Contractions</button>
+<div class="collapsible-content">
+  <p>
+    Premature Ventricular Contractions (PVCs) are early heartbeats originating in the ventricles. Frequent PVCs can be a sign of heart disease or electrolyte imbalances.
+  </p>
+</div>
+
+<button class="collapsible">Right Bundle Branch Block</button>
+<div class="collapsible-content">
+  <p>
+    Right Bundle Branch Block (RBBB) is a blockage of electrical impulses to the right side of the heart. It can be benign or associated with heart or lung disease.
+  </p>
+</div>
+
+<button class="collapsible">Ventricular Fibrillation</button>
+<div class="collapsible-content">
+  <p>
+    Ventricular Fibrillation (VFib) is a life-threatening arrhythmia where the ventricles quiver instead of pumping blood. Immediate medical intervention is required.
+  </p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var coll = document.getElementsByClassName("collapsible");
+  for (var i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+});
+</script>
+
+<style>
+.collapsible {
+  background-color: #eee;
+  color: #283593;
+  cursor: pointer;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.1em;
+  margin-top: 8px;
+  border-radius: 5px;
+  transition: background 0.2s;
+  font-weight: bold;
+}
+.collapsible.active, .collapsible:hover {
+  background-color: #d1d9ff;
+}
+.collapsible-content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  border-radius: 0 0 5px 5px;
+  margin-bottom: 8px;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Arrhythmia Classification using Deep Learning</h2>
+<p>Upload a 2D ECG image to predict the arrhythmia class.</p>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*" required>
+    <button type="submit">Predict</button>
+</form>
+{% if img_filename %}
+    <h3>Uploaded Image:</h3>
+    <img src="{{ url_for('static', filename='uploads/' + img_filename) }}" alt="Uploaded ECG" style="max-width:320px; margin-bottom: 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(40,53,147,0.08);">
+{% endif %}
+{% if prediction %}
+    <h3>Prediction: <span class="result">{{ prediction }}</span></h3>
+{% endif %}
+{% endblock %}
